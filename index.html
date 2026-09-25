@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Maker</title>
+</head>
+<body>
 
+    <header>
+        <h1>Quiz Maker</h1>
+        <p>Create your own quiz</p>
+    </header>
+
+    <main>
+        <section id="quiz-details">
+            <h2>Quiz Details</h2>
+
+            <label for="quizTitle">Quiz Title</label>
+            <input type="text" id="quizTitle" placeholder="Enter quiz title">
+
+            <label for="quizDescription">Description</label>
+            <textarea id="quizDescription" placeholder="Enter quiz description"></textarea>
+        </section>
+
+        <section id="questions">
+            <h2>Questions</h2>
+
+            <div class="question">
+                <label for="question1">Question 1</label>
+                <textarea id="question1" placeholder="Enter your question"></textarea>
+
+                <label>Answer Options</label>
+
+                <input type="text" placeholder="Option A">
+                <input type="text" placeholder="Option B">
+                <input type="text" placeholder="Option C">
+                <input type="text" placeholder="Option D">
+
+                <label for="correctAnswer1">Correct Answer</label>
+                <select id="correctAnswer1">
+                    <option value="">Select correct answer</option>
+                    <option value="A">Option A</option>
+                    <option value="B">Option B</option>
+                    <option value="C">Option C</option>
+                    <option value="D">Option D</option>
+                </select>
+            </div>
+
+            <button type="button" id="addQuestion">+ Add Question</button>
+        </section>
+
+        <section id="quiz-actions">
+            <button type="button" id="previewQuiz">Preview Quiz</button>
+            <button type="button" id="saveQuiz">Save Quiz</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Quiz Maker</p>
+    </footer>
+
+</body>
+</html>
