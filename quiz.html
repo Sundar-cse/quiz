@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="playerTitle">Take Quiz</h1>
+        <p id="playerDescription"></p>
+    </header>
+
+    <main>
+        <section id="playerQuiz" class="card">
+            <div id="playerContent"></div>
+            <button type="button" id="submitQuiz" class="primary-btn">Submit Quiz</button>
+        </section>
+
+        <section id="result" class="card hidden">
+            <h2>Quiz Result</h2>
+            <p id="scoreText"></p>
+            <button type="button" id="retryQuiz" class="secondary-btn">Try Again</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Quiz Maker</p>
+    </footer>
+
+    <script src="player.js"></script>
+</body>
+</html>
