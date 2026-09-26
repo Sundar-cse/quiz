@@ -143,3 +143,44 @@ footer {
         flex-direction: column;
     }
 }
+.player-question h3 {
+    margin-top: 0;
+}
+
+.player-options {
+    display: grid;
+    gap: 10px;
+}
+
+.player-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.player-option:hover {
+    background: #f4f6f8;
+}
+
+.player-option input {
+    width: auto;
+    margin: 0;
+}
+
+.primary-btn {
+    width: 100%;
+    margin-top: 18px;
+    padding: 13px;
+    font-size: 16px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
