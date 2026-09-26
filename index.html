@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Maker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <h1>Quiz Maker</h1>
         <p>Create your own quiz</p>
     </header>
 
     <main>
-        <section id="quiz-details">
+        <section id="quiz-details" class="card">
             <h2>Quiz Details</h2>
 
             <label for="quizTitle">Quiz Title</label>
@@ -23,36 +23,28 @@
             <textarea id="quizDescription" placeholder="Enter quiz description"></textarea>
         </section>
 
-        <section id="questions">
-            <h2>Questions</h2>
-
-            <div class="question">
-                <label for="question1">Question 1</label>
-                <textarea id="question1" placeholder="Enter your question"></textarea>
-
-                <label>Answer Options</label>
-
-                <input type="text" placeholder="Option A">
-                <input type="text" placeholder="Option B">
-                <input type="text" placeholder="Option C">
-                <input type="text" placeholder="Option D">
-
-                <label for="correctAnswer1">Correct Answer</label>
-                <select id="correctAnswer1">
-                    <option value="">Select correct answer</option>
-                    <option value="A">Option A</option>
-                    <option value="B">Option B</option>
-                    <option value="C">Option C</option>
-                    <option value="D">Option D</option>
-                </select>
+        <section id="questions" class="card">
+            <div class="section-heading">
+                <h2>Questions</h2>
+                <span id="questionCount">0 questions</span>
             </div>
 
-            <button type="button" id="addQuestion">+ Add Question</button>
+            <div id="questionList"></div>
+
+            <button type="button" id="addQuestion" class="secondary-btn">+ Add Question</button>
         </section>
 
-        <section id="quiz-actions">
+        <section id="quiz-actions" class="card actions">
             <button type="button" id="previewQuiz">Preview Quiz</button>
             <button type="button" id="saveQuiz">Save Quiz</button>
+        </section>
+
+        <section id="preview" class="card preview hidden">
+            <div class="section-heading">
+                <h2>Quiz Preview</h2>
+                <button type="button" id="closePreview" class="small-btn">Close</button>
+            </div>
+            <div id="previewContent"></div>
         </section>
     </main>
 
@@ -60,5 +52,6 @@
         <p>Quiz Maker</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
