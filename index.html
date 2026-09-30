@@ -3,55 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Maker</title>
+
+    <title>Cybersecurity Quiz-sundar</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-        <h1>Quiz Maker</h1>
-        <p>Create your own quiz</p>
-    </header>
 
-    <main>
-        <section id="quiz-details" class="card">
-            <h2>Quiz Details</h2>
+    <main class="home-page">
 
-            <label for="quizTitle">Quiz Title</label>
-            <input type="text" id="quizTitle" placeholder="Enter quiz title">
+        <div class="hero">
 
-            <label for="quizDescription">Description</label>
-            <textarea id="quizDescription" placeholder="Enter quiz description"></textarea>
-        </section>
-
-        <section id="questions" class="card">
-            <div class="section-heading">
-                <h2>Questions</h2>
-                <span id="questionCount">0 questions</span>
+            <div class="badge">
+                CYBERSECURITY EVENT
             </div>
 
-            <div id="questionList"></div>
+            <h1>
+                Cybersecurity<br>
+                <span>Challenge</span>
+            </h1>
 
-            <button type="button" id="addQuestion" class="secondary-btn">+ Add Question</button>
-        </section>
+            <p>
+                Test your cybersecurity knowledge with
+                10 carefully selected questions.
+            </p>
 
-        <section id="quiz-actions" class="card actions">
-            <button type="button" id="previewQuiz">Preview Quiz</button>
-            <button type="button" id="saveQuiz">Save Quiz</button>
-        </section>
+            <div class="event-info">
 
-        <section id="preview" class="card preview hidden">
-            <div class="section-heading">
-                <h2>Quiz Preview</h2>
-                <button type="button" id="closePreview" class="small-btn">Close</button>
+                <div>
+                    <strong>10</strong>
+                    <span>Questions</span>
+                </div>
+
+                <div>
+                    <strong>10</strong>
+                    <span>Minutes</span>
+                </div>
+
+                <div>
+                    <strong>1</strong>
+                    <span>Attempt</span>
+                </div>
+
             </div>
-            <div id="previewContent"></div>
-        </section>
+
+            <a href="quiz.html" class="primary-btn start-btn">
+                Start Quiz →
+            </a>
+
+            <a href="leaderboard.html" class="leaderboard-link">
+                View Leaderboard
+            </a>
+
+        </div>
+
     </main>
 
-    <footer>
-        <p>Quiz Maker</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
