@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Leaderboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="quiz-header">
+
+    <div>
+
+        <div class="small-label">
+            CYBERSECURITY CHALLENGE
+        </div>
+
+        <h1>Leaderboard</h1>
+
+    </div>
+
+</header>
+
+
+<main class="quiz-container">
+
+    <section class="card">
+
+        <div style="text-align:center">
+
+            <div class="small-label">
+                LIVE RESULTS
+            </div>
+
+            <h2>
+                Top Players
+            </h2>
+
+            <p>
+                Rankings are updated after each submission.
+            </p>
+
+        </div>
+
+
+        <div id="leaderboard">
+
+            <p style="text-align:center">
+                Loading leaderboard...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <br>
+
+
+    <a
+        href="index.html"
+        class="primary-btn"
+    >
+        ← Back to Quiz
+    </a>
+
+</main>
+
+
+<script>
+
+const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbxP_rYorpRJD8pJ_3SQiOPEI-73DKvYZbrL6qNNP70iYIIAT1SWK7FziXe2SPojWE4CNQ/exec";
+
+
+async function loadLeaderboard() {
+
+    const container =
+        document.getElementById(
+            "leaderboard"
+        );
+
+
+    try {
+
+        const response =
+            await fetch(
+                GOOGLE_SCRIPT_URL
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!data.success) {
+
+            throw new Error(
+                "Unable to load leaderboard"
+            );
+
+        }
+
+
+        if (!data.results.length) {
+
+            container.innerHTML = `
+                <p style="text-align:center">
+                    No results yet.
+                </p>
+            `;
+
+            return;
+
+        }
+
+
+        container.innerHTML =
+            data.results
+                .map((player, index) => {
+
+                    const rank =
+                        index + 1;
+
+
+                    let medal = "";
+
+                    if (rank === 1)
+                        medal = "🥇";
+
+                    if (rank === 2)
+                        medal = "🥈";
+
+                    if (rank === 3)
+                        medal = "🥉";
+
+
+                    return `
+
+                    <div
+                        style="
+                            display:flex;
+                            align-items:center;
+                            justify-content:space-between;
+                            gap:15px;
+                            padding:18px 12px;
+                            border-bottom:1px solid #e4e7ec;
+                        "
+                    >
+
+                        <div>
+
+                            <strong>
+                                ${medal} ${rank}.
+                                ${escapeHtml(player.name)}
+                            </strong>
+
+                            <div
+                                style="
+                                    color:#667085;
+                                    font-size:13px;
+                                    margin-top:5px;
+                                "
+                            >
+                                ${player.timeTaken}s
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            style="
+                                text-align:right;
+                            "
+                        >
+
+                            <strong
+                                style="
+                                    font-size:20px;
+                                    color:#2563eb;
+                                "
+                            >
+                                ${player.score}/${player.total}
+                            </strong>
+
+                            <div
+                                style="
+                                    color:#667085;
+                                    font-size:12px;
+                                "
+                            >
+                                ${player.percentage}%
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    `;
+
+                })
+                .join("");
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        container.innerHTML = `
+
+            <p style="text-align:center;color:#f04438">
+
+                Unable to load leaderboard.
+
+                <br>
+
+                Please try again later.
+
+            </p>
+
+        `;
+
+    }
+
+}
+
+
+function escapeHtml(value) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        value;
+
+    return div.innerHTML;
+
+}
+
+
+loadLeaderboard();
+
+</script>
+
+</body>
+
+</html>
