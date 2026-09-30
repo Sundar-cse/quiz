@@ -1,50 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Take Quiz</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1 id="playerTitle">Take Quiz</h1>
-        <p id="playerDescription"></p>
-    </header>
 
-    <main>
-        <section id="playerQuiz" class="card">
-
-    <label for="playerName">Your Name</label>
-
-    <input
-        type="text"
-        id="playerName"
-        placeholder="Enter your name"
-        required
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
     >
 
-    <div id="playerContent"></div>
+    <title>Cybersecurity Challenge</title>
 
-    <button type="button" id="submitQuiz" class="primary-btn">
-        Submit Quiz
-    </button>
+    <link rel="stylesheet" href="style.css">
 
-</section>
+</head>
 
- 
+<body>
 
-        <section id="result" class="card hidden">
-            <h2>Quiz Result</h2>
-            <p id="scoreText"></p>
-            <button type="button" id="retryQuiz" class="secondary-btn">Try Again</button>
-        </section>
-    </main>
+<header class="quiz-header">
 
-    <footer>
-        <p>Quiz Maker</p>
-    </footer>
+    <div>
 
-    <script src="player.js"></script>
+        <div class="small-label">
+            CYBERSECURITY CHALLENGE
+        </div>
+
+        <h1>Cyber Quiz</h1>
+
+    </div>
+
+    <div class="timer" id="timer">
+        10:00
+    </div>
+
+</header>
+
+
+<main class="quiz-container">
+
+    <!-- PLAYER NAME -->
+
+    <section id="nameScreen" class="screen card">
+
+        <div class="icon-circle">
+            🔐
+        </div>
+
+        <h2>Welcome!</h2>
+
+        <p>
+            Enter your name to begin the cybersecurity challenge.
+        </p>
+
+        <label for="playerName">
+            Your Name
+        </label>
+
+        <input
+            id="playerName"
+            type="text"
+            placeholder="Enter your full name"
+            maxlength="50"
+            autocomplete="name"
+        >
+
+        <button
+            id="startQuiz"
+            class="primary-btn"
+        >
+            Start Quiz →
+        </button>
+
+    </section>
+
+
+    <!-- QUIZ -->
+
+    <section
+        id="quizScreen"
+        class="screen hidden"
+    >
+
+        <div class="progress-container">
+
+            <div class="progress-info">
+
+                <span id="questionNumber">
+                    Question 1 of 10
+                </span>
+
+                <span id="progressPercent">
+                    10%
+                </span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    id="progressBar"
+                    class="progress-fill"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <div id="questionCard" class="question-card">
+
+            <div
+                id="caseStudy"
+                class="case-study hidden"
+            ></div>
+
+            <div
+                id="questionText"
+                class="question-text"
+            ></div>
+
+            <div
+                id="options"
+                class="options"
+            ></div>
+
+        </div>
+
+
+        <button
+            id="nextButton"
+            class="primary-btn"
+            disabled
+        >
+            Next Question →
+        </button>
+
+    </section>
+
+
+    <!-- RESULT -->
+
+    <section
+        id="resultScreen"
+        class="screen card result-screen hidden"
+    >
+
+        <div class="result-icon">
+            ✓
+        </div>
+
+        <div class="small-label">
+            QUIZ COMPLETED
+        </div>
+
+        <h2>Well done!</h2>
+
+        <p id="resultName"></p>
+
+        <div class="score">
+
+            <span id="score">
+                0
+            </span>
+
+            <small>
+                / 10
+            </small>
+
+        </div>
+
+        <div
+            id="percentage"
+            class="percentage"
+        >
+            0%
+        </div>
+
+        <p id="savingMessage">
+            Saving your result...
+        </p>
+
+        <a
+            href="leaderboard.html"
+            class="primary-btn"
+        >
+            View Leaderboard →
+        </a>
+
+    </section>
+
+</main>
+
+
+<script src="player.js"></script>
+
 </body>
+
 </html>
